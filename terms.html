@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regulamin Aplikacji i Serwisu — TanieDanie</title>
+  
+  <meta name="description" content="Regulamin korzystania z aplikacji mobilnej oraz serwisu internetowego TanieDanie. Warunki świadczenia usług, zastrzeżenia AI i zasady bezpieczeństwa.">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981',
+            primaryDark: '#059669',
+            primaryLight: '#D1FAE5',
+            accent: '#F59E0B',
+            darkSlate: '#0F172A',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/images/app-icon.png" alt="TanieDanie Logo" class="w-10 h-10 rounded-2xl shadow-sm">
+          <div>
+            <span class="font-heading font-extrabold text-xl tracking-tight text-slate-900">Tanie<span class="text-primary">Danie</span></span>
+            <span class="block text-[9px] uppercase font-bold tracking-widest text-emerald-600 -mt-1">Regulamin</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <a href="index.html" class="text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Powrót do strony głównej
+          </a>
+          <a href="privacy.html" class="hidden sm:inline-block text-slate-500 hover:text-slate-900">Polityka Prywatności</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    
+    <div class="bg-white rounded-3xl p-6 sm:p-12 shadow-sm border border-slate-200/80">
+      
+      <div class="border-b border-slate-100 pb-8 mb-8">
+        <span class="text-xs font-bold uppercase tracking-wider text-primary">Dokument Prawny</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading mt-2">
+          Regulamin Aplikacji i Serwisu TanieDanie
+        </h1>
+        <p class="text-xs text-slate-400 mt-2">Ostatnia aktualizacja: 27 października 2026 r. (Wersja 1.2)</p>
+      </div>
+
+      <!-- Quick Alert box -->
+      <div class="bg-emerald-50 border border-emerald-200 rounded-2xl p-4 sm:p-5 mb-8 text-xs sm:text-sm text-emerald-900 leading-relaxed">
+        <p class="font-bold flex items-center gap-1.5 mb-1">
+          <svg class="w-5 h-5 text-emerald-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+          Kluczowa informacja dla Użytkownika:
+        </p>
+        Aplikacja TanieDanie udostępnia przepisy generowane z wykorzystaniem sztucznej inteligencji (AI) w oparciu o publiczne gazetki promocyjne sklepów. Przepisy mają charakter inspiracyjny. Zawsze weryfikuj alergeny pokarmowe oraz świeżość produktów przed ich spożyciem.
+      </div>
+
+      <!-- Legal Sections -->
+      <div class="prose prose-slate max-w-none space-y-8 text-sm sm:text-base leading-relaxed text-slate-700">
+        
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 1. Postanowienia ogólne i definicje</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Niniejszy Regulamin określa zasady korzystania z aplikacji mobilnej <strong>TanieDanie</strong> (zwanej dalej „Aplikacją”) oraz powiązanej z nią strony internetowej.</li>
+            <li><strong>Usługodawca</strong> — twórca i administrator aplikacji TanieDanie. Kontakt z Usługodawcą możliwy jest pod adresem e-mail: <a href="mailto:kontakt@taniedanie.app" class="text-primary font-semibold underline">kontakt@taniedanie.app</a>.</li>
+            <li><strong>Użytkownik</strong> — każda osoba fizyczna korzystająca z Aplikacji lub Strony internetowej.</li>
+            <li><strong>Treści AI</strong> — przepisy kulinarne, kalkulacje gramatur, makroskładników i kalorii generowane przy użyciu zintegrowanych modeli sztucznej inteligencji.</li>
+            <li><strong>Promocje</strong> — informacje o obniżkach cenowych produktów pochodzące z publicznie udostępnianych gazetek sieci handlowych.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 2. Wymagania techniczne i Rejestracja</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Do korzystania z Aplikacji niezbędne jest urządzenie z systemem Android (w wersji min. 8.0) oraz aktywne połączenie z siecią Internet.</li>
+            <li>Przeglądanie części przepisów i promocji może odbywać się bez rejestracji, natomiast pełen dostęp do funkcji (zapisywanie przepisów, synchronizacja listy zakupów, personalizacja wielkości gospodarstwa domowego) wymaga utworzenia Konta.</li>
+            <li>Rejestracja Konta jest bezpłatna. Użytkownik zobowiązany jest do podania prawdziwego adresu e-mail oraz zachowania hasła w tajemnicy.</li>
+          </ol>
+        </section>
+
+        <section class="bg-amber-50/60 p-5 rounded-2xl border border-amber-200">
+          <h2 class="text-lg sm:text-xl font-bold text-amber-950 font-heading mb-3 flex items-center gap-2">
+            <svg class="w-5 h-5 text-amber-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+            § 3. Charakter treści kulinarnych i Zastrzeżenie dotyczące AI (Disclaimer)
+          </h2>
+          <div class="space-y-2 text-amber-900 text-sm">
+            <p>1. Przepisy, instrukcje przygotowania, czasy obróbki cieplnej oraz wartości makroskładników (białko, węglowodany, tłuszcze, kalorie) są generowane automatycznie przez zaawansowane modele sztucznej inteligencji.</p>
+            <p>2. <strong>Treści mają charakter wyłącznie pomocniczy, edukacyjny i inspiracyjny.</strong> Nie stanowią one profesjonalnej porady dietetycznej, medycznej ani kulinarnej.</p>
+            <p>3. <strong>Alergeny i bezpieczeństwo zdrowotne:</strong> Użytkownik ponosi wyłączną odpowiedzialność za sprawdzenie składu produktów, obecności alergenów (np. gluten, orzechy, laktoza, jaja) oraz przydatności produktów do spożycia. Usługodawca nie ponosi odpowiedzialności za reakcje alergiczne, zatrucia pokarmowe lub niepożądane skutki zdrowotne wynikłe z przygotowania dań według wygenerowanych przepisów.</p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 4. Informacje o cenach i promocjach</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Prezentowane w Aplikacji ceny promocyjne i regularne produktów pochodzą z publicznych materiałów marketingowych (gazetek handlowych) poszczególnych sieci (np. Biedronka, Lidl).</li>
+            <li>Informacje o cenach mają charakter wyłącznie orientacyjny i <strong>nie stanowią oferty handlowej w rozumieniu art. 66 i n. Kodeksu Cywilnego</strong>.</li>
+            <li>Rzeczywista cena, dostępność asortymentu oraz warunki promocji (np. posiadanie karty lojalnościowej) mogą różnić się w poszczególnych sklepach stacjonarnych. Wiążąca dla Użytkownika jest zawsze cena na półce i przy kasie w danym punkcie sprzedaży.</li>
+            <li>Aplikacja TanieDanie jest projektem niezależnym i nie jest w żaden sposób powiązana, sponsorowana ani prowadzona przez sieci Jeronimo Martins Polska (Biedronka), Lidl Polska ani inne wymienione podmioty.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 5. Prawa autorskie i dozwolony użytek</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Wszelkie prawa do interfejsu graficznego Aplikacji, logo TanieDanie, kodu źródłowego oraz bazy danych przysługują Usługodawcy.</li>
+            <li>Użytkownik ma prawo korzystać z Aplikacji wyłącznie na własny użytek osobisty.</li>
+            <li>Zabronione jest stosowanie automatycznych narzędzi pobierających dane (tzw. web scraping), inżynierii wstecznej (reverse engineering), dekompilacji kodu oraz działań mogących zakłócić stabilność serwerów API.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 6. Usunięcie konta i Rezygnacja</h2>
+          <p>
+            Użytkownik może w każdej chwili zrezygnować z korzystania z Aplikacji i usunąć swoje konto. Szczegółowa procedura opisana jest na podstronie: <a href="delete-account.html" class="text-primary font-semibold underline">Procedura usuwania konta</a>. Usunięcie konta jest nieodwracalne i powoduje trwałe skasowanie wszystkich powiązanych danych.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 7. Reklamacje i kontakt</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>Wszelkie uwagi, błędy techniczne lub reklamacje dotyczące funkcjonowania Aplikacji można zgłaszać drogą elektroniczną na adres: <a href="mailto:kontakt@taniedanie.app" class="text-primary font-semibold underline">kontakt@taniedanie.app</a>.</li>
+            <li>Zgłoszenia rozpatrywane są w terminie do 14 dni roboczych.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading mb-3">§ 8. Postanowienia końcowe</h2>
+          <ol class="list-decimal pl-5 space-y-2">
+            <li>W sprawach nieuregulowanych niniejszym Regulaminem zastosowanie mają powszechnie obowiązujące przepisy prawa polskiego, w szczególności Kodeksu Cywilnego oraz Ustawy o prawach konsumenta.</li>
+            <li>Usługodawca zastrzega sobie prawo do wprowadzania zmian w Regulaminie z ważnych przyczyn prawnych lub technologicznych. O istotnych zmianach Użytkownicy zostaną poinformowani w Aplikacji.</li>
+          </ol>
+        </section>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p>© 2026 TanieDanie. Wszelkie prawa zastrzeżone.</p>
+      <div class="flex justify-center gap-4 text-xs font-medium">
+        <a href="terms.html" class="text-primary">Regulamin</a>
+        <span>•</span>
+        <a href="privacy.html" class="hover:text-primary">Polityka Prywatności</a>
+        <span>•</span>
+        <a href="delete-account.html" class="hover:text-primary">Usuwanie Konta</a>
+        <span>•</span>
+        <a href="contact.html" class="hover:text-primary">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

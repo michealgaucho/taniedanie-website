@@ -1,0 +1,13 @@
+{
+  "name": "taniedanie-website",
+  "version": "1.0.0",
+  "description": "Oficjalna strona internetowa i dokumentacja prawna aplikacji TanieDanie",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve -l 3000 .",
+    "dev": "npx serve -l 3000 ."
+  },
+  "keywords": ["taniedanie", "zero-waste", "przepisy", "promocje", "biedronka", "lidl"],
+  "author": "TanieDanie Team",
+  "license": "ISC"
+}

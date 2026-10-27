@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TanieDanie — Kupuj z promocji, gotuj z AI i nie marnuj jedzenia</title>
+  
+  <meta name="description" content="TanieDanie łączy aktualne promocje z Biedronki, Lidla i innych dyskontów z inteligentnymi przepisami AI. Oszczędzaj na zakupach i gotuj smacznie bez marnowania żywności.">
+  <meta name="keywords" content="tanie danie, promocje biedronka, promocje lidl, przepisy z promocji, gotowanie zero waste, meal prep, lista zakupów">
+  
+  <!-- Open Graph / Facebook / Messenger -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://taniedanie.app/">
+  <meta property="og:title" content="TanieDanie — Kupuj z promocji, gotuj z AI i nie marnuj jedzenia">
+  <meta property="og:description" content="Aplikacja kulinarna AI łącząca gazetki promocyjne z pysznymi, tanimi przepisami i sprytną listą zakupów.">
+  <meta property="og:image" content="assets/images/app-icon.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981',
+            primaryDark: '#059669',
+            primaryLight: '#D1FAE5',
+            accent: '#F59E0B',
+            darkSlate: '#0F172A',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white text-xs sm:text-sm font-medium py-2 px-4 text-center">
+    <span>🌱 Gotuj z przepisów z gazetek Biedronki i Lidla! Pobierz najnowszą wersję aplikacji na Androida.</span>
+  </div>
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/images/app-icon.png" alt="TanieDanie Logo" class="w-11 h-11 rounded-2xl shadow-sm group-hover:scale-105 transition-transform">
+          <div>
+            <span class="font-heading font-extrabold text-2xl tracking-tight text-slate-900">Tanie<span class="text-primary">Danie</span></span>
+            <span class="block text-[10px] uppercase font-bold tracking-widest text-emerald-600 -mt-1">Zero-Waste AI</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#funkcje" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Funkcje</a>
+          <a href="#jak-dziala" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Jak to działa</a>
+          <a href="#korzysci" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Dlaczego warto</a>
+          <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">FAQ</a>
+          <a href="contact.html" class="text-sm font-semibold text-slate-600 hover:text-primary transition-colors">Kontakt</a>
+        </nav>
+
+        <!-- CTA Action Button -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a href="#pobierz" class="inline-flex items-center gap-2 bg-primary hover:bg-primaryDark text-white text-sm font-bold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/35 transition-all transform hover:-translate-y-0.5">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+            Pobierz Aplikację
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" type="button" aria-expanded="false" class="md:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-xl">
+      <a href="#funkcje" class="block py-2 text-base font-semibold text-slate-700 hover:text-primary">Funkcje</a>
+      <a href="#jak-dziala" class="block py-2 text-base font-semibold text-slate-700 hover:text-primary">Jak to działa</a>
+      <a href="#korzysci" class="block py-2 text-base font-semibold text-slate-700 hover:text-primary">Dlaczego warto</a>
+      <a href="#faq" class="block py-2 text-base font-semibold text-slate-700 hover:text-primary">FAQ</a>
+      <a href="contact.html" class="block py-2 text-base font-semibold text-slate-700 hover:text-primary">Kontakt</a>
+      <a href="terms.html" class="block py-2 text-base font-semibold text-slate-500 hover:text-primary">Regulamin</a>
+      <a href="privacy.html" class="block py-2 text-base font-semibold text-slate-500 hover:text-primary">Polityka Prywatności</a>
+      <div class="pt-2">
+        <a href="#pobierz" class="block w-full text-center bg-primary text-white font-bold py-3 rounded-xl shadow-md">Pobierz w Google Play</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-20 sm:pt-20 sm:pb-28 overflow-hidden bg-gradient-to-b from-white via-slate-50 to-emerald-50/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300 text-emerald-800 text-xs sm:text-sm font-semibold mb-6">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 badge-pulse"></span>
+            Inteligentna kuchnia na każdą kieszeń
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15]">
+            Kupuj z <span class="text-primary underline decoration-emerald-300 decoration-wavy decoration-2">promocji</span>,<br>
+            gotuj z AI i <span class="text-emerald-700">oszczędzaj</span>.
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <strong class="text-slate-800">TanieDanie</strong> pobiera aktualne promocje z Biedronki, Lidla i innych dyskontów, a sztuczna inteligencja komponuje z nich pyszne, pełnowartościowe posiłki. Koniec z marnowaniem jedzenia i wyrzucaniem pieniędzy w błoto.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#pobierz" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-darkSlate hover:bg-slate-800 text-white font-bold px-7 py-4 rounded-2xl shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-0.5">
+              <svg class="w-6 h-6 fill-emerald-400" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+              <div class="text-left">
+                <span class="block text-[10px] text-slate-300 uppercase tracking-wider font-semibold">Pobierz w</span>
+                <span class="text-base font-extrabold tracking-wide">Google Play</span>
+              </div>
+            </a>
+            
+            <a href="#jak-dziala" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-semibold px-6 py-4 rounded-2xl border border-slate-200 shadow-sm hover:shadow transition-all">
+              <span>Zobacz jak to działa</span>
+              <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="mt-10 pt-8 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-500 font-medium">
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              100% Darmowa aplikacja
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              Brak ukrytych opłat
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              Zgodność z RODO i Google Play
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Hero Phone Mockup -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-[320px] sm:max-w-[340px]">
+            
+            <!-- Glow background behind phone -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-emerald-400 to-teal-300 rounded-[60px] blur-2xl opacity-40 -z-10"></div>
+
+            <!-- Phone Frame -->
+            <div class="phone-mockup border-4 border-slate-800">
+              <div class="phone-island"></div>
+
+              <!-- Screen Content Preview -->
+              <div class="pt-10 pb-6 px-4 bg-slate-50 min-h-[580px]">
+                
+                <!-- App Header -->
+                <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+                  <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-xl bg-emerald-500 flex items-center justify-center text-white font-bold text-xs shadow-sm">TD</div>
+                    <div>
+                      <span class="block text-xs font-bold text-slate-900 leading-tight">TanieDanie</span>
+                      <span class="text-[9px] text-emerald-600 font-semibold">Oferty z Biedronki</span>
+                    </div>
+                  </div>
+                  <span class="text-[10px] bg-orange-100 text-orange-700 font-bold px-2 py-0.5 rounded-full border border-orange-200">🔥 Prep Meal</span>
+                </div>
+
+                <!-- Recipe Card Example inside Phone -->
+                <div class="mt-4 bg-white rounded-2xl p-3 shadow-md border border-slate-200/80">
+                  <div class="relative h-32 rounded-xl overflow-hidden bg-slate-200 mb-2.5">
+                    <img src="https://images.pexels.com/photos/11663143/pexels-photo-11663143.jpeg?auto=compress&cs=tinysrgb&h=400&w=600" alt="Curry z kurczaka" class="w-full h-full object-cover">
+                    <span class="absolute top-2 left-2 bg-amber-400 text-slate-900 text-[10px] font-extrabold px-2 py-0.5 rounded-md shadow">👑 Złoty Przepis</span>
+                    <span class="absolute bottom-2 right-2 bg-darkSlate/80 backdrop-blur-sm text-white text-[10px] font-bold px-2 py-0.5 rounded">6 porcji</span>
+                  </div>
+                  
+                  <h4 class="font-bold text-xs text-slate-900 leading-snug">Kurczak curry z kalafiorem i ziemniakami</h4>
+                  
+                  <div class="mt-2 flex items-center gap-1.5 flex-wrap">
+                    <span class="text-[9px] font-bold bg-red-50 text-red-600 px-1.5 py-0.5 rounded border border-red-200">🔥 830 kcal/porcja</span>
+                    <span class="text-[9px] font-bold bg-emerald-50 text-emerald-700 px-1.5 py-0.5 rounded border border-emerald-200">B: 52g</span>
+                    <span class="text-[9px] font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded border border-blue-200">W: 75g</span>
+                  </div>
+
+                  <div class="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <div>
+                      <span class="text-[9px] text-slate-400 block font-medium">Koszt 1 porcji:</span>
+                      <span class="text-xs font-black text-emerald-600">8.73 zł</span>
+                    </div>
+                    <button class="bg-primary text-white text-[10px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-1">
+                      <span>+ Do koszyka</span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Second Mini Card (Smart Cart) -->
+                <div class="mt-3 bg-emerald-500 text-white rounded-xl p-3 shadow-sm">
+                  <div class="flex items-center justify-between text-xs font-bold mb-1">
+                    <span>🛒 Koszyk Zero-Waste</span>
+                    <span class="bg-white/20 px-1.5 py-0.5 rounded text-[10px]">4 osoby</span>
+                  </div>
+                  <p class="text-[10px] text-emerald-100">Wszystkie gramatury automatycznie przeskalowane i połączone bez duplikatów.</p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers & Highlights Section -->
+  <section id="korzysci" class="py-16 bg-white border-y border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-4xl sm:text-5xl font-extrabold text-primary font-heading">do 300 zł</div>
+          <h3 class="mt-2 text-base font-bold text-slate-900">Średnia miesięczna oszczędność</h3>
+          <p class="mt-1 text-sm text-slate-500">Dzięki kupowaniu bazowych składników w cenach promocyjnych zamiast losowych zakupów.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-4xl sm:text-5xl font-extrabold text-accent font-heading">0% marnowania</div>
+          <h3 class="mt-2 text-base font-bold text-slate-900">Gotowanie w duchu Zero-Waste</h3>
+          <p class="mt-1 text-sm text-slate-500">Przepisy są tak planowane, aby wykorzystać zakupione produkty w całości do ostatniego grama.</p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100">
+          <div class="text-4xl sm:text-5xl font-extrabold text-teal-600 font-heading">3-5 dni</div>
+          <h3 class="mt-2 text-base font-bold text-slate-900">Gotowe dania Meal-Prep</h3>
+          <p class="mt-1 text-sm text-slate-500">Przygotuj obiad raz i ciesz się smacznym, zbilansowanym jedzeniem przez cały tydzień pracy.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="funkcje" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs uppercase font-extrabold tracking-widest text-primary mb-3">Wszystko w jednej aplikacji</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+          Inteligentne narzędzia, które rewolucjonizują Twoją kuchnię
+        </p>
+        <p class="mt-4 text-slate-600 text-base sm:text-lg">
+          Zobacz, jak łączymy zaawansowaną sztuczną inteligencję z realnymi promocjami ze sklepów.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 glow-card flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-primary flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">Promocje z dyskontów</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Zawsze aktualne przeceny z popularnych marketów: Biedronka, Lidl i kolejne sklepy. Koniec z wertowaniem papierowych gazetek.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-primary">
+            ✓ Zniżki nawet do 60%
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 glow-card flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">Generowanie przepisów AI</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Model sztucznej inteligencji analizuje zniżki i tworzy zbilansowane przepisy: wylicza kalorie, makroskładniki i koszt na porcję.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-amber-600">
+            ✓ Z dokładnym makro i kaloriami
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 glow-card flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">Meal Prep & Złote Przepisy</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Specjalna kategoria posiłków na 3-5 dni oraz Złote Przepisy – najchętniej zapisywane i sprawdzone dania społeczności.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-blue-600">
+            ✓ Idealne do pojemników i lodówki
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/80 glow-card flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-600 flex items-center justify-center mb-5">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+            </div>
+            <h3 class="font-bold text-lg text-slate-900 mb-2">Inteligentny Koszyk</h3>
+            <p class="text-sm text-slate-600 leading-relaxed">
+              Dodawaj przepisy do koszyka! Gramatury sumują się automatycznie pod wielkość Twojej rodziny (1-12 osób) bez powielania pozycji.
+            </p>
+          </div>
+          <div class="mt-6 pt-4 border-t border-slate-100 text-xs font-semibold text-purple-600">
+            ✓ Dynamiczne skalowanie gramatur
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="jak-dziala" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-xs uppercase font-extrabold tracking-widest text-primary mb-3">Trzy proste kroki</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+          Jak działa TanieDanie?
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        
+        <!-- Step 1 -->
+        <div class="relative p-8 rounded-3xl bg-slate-50 border border-slate-200/80 text-center">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-primary text-white font-black text-xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/25">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Wybierasz sklep i promocje</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Otwierasz aplikację i przeglądasz aktualne zniżki lub pozwalasz, aby asystent AI automatycznie dopasował najtańsze składniki.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative p-8 rounded-3xl bg-slate-50 border border-slate-200/80 text-center">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-700 text-white font-black text-xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-700/25">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Wybierasz przepis z AI</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Otrzymujesz dopasowany przepis z dokładną instrukcją krok po kroku, czasem przygotowania, kaloriami i kosztem na porcję.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative p-8 rounded-3xl bg-slate-50 border border-slate-200/80 text-center">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-accent text-white font-black text-xl flex items-center justify-center mb-6 shadow-lg shadow-amber-500/25">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">Gotujesz tanio i zdrowo</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            Dodajesz składniki do listy zakupów, idziesz do sklepu i gotujesz pyszne jedzenie, nie marnując ani grosza ani grama składników.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <h2 class="text-xs uppercase font-extrabold tracking-widest text-primary mb-3">Masz pytania?</h2>
+        <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight font-heading">
+          Najczęściej zadawane pytania (FAQ)
+        </p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <button type="button" class="faq-question w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Czy aplikacja TanieDanie jest całkowicie darmowa?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            Tak! Korzystanie z aplikacji, przeglądanie promocji z dyskontów, generowanie przepisów oraz tworzenie list zakupów jest w 100% bezpłatne dla użytkowników.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <button type="button" class="faq-question w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Z jakich sklepów pochodzą promocje?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            Aplikacja pobiera dane z publicznie dostępnych gazetek promocyjnych największych sieci w Polsce, w tym m.in. Biedronki oraz Lidla. Lista sklepów jest stale rozwijana.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <button type="button" class="faq-question w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Czy przepisy uwzględniają specjalne diety?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            Tak. W aplikacji znajdziesz kategorie takie jak dania wegetariańskie, bezglutenowe, keto, wysokobiałkowe (high-protein) oraz specjalny moduł Prep Meal.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item bg-white rounded-2xl border border-slate-200/80 overflow-hidden shadow-sm">
+          <button type="button" class="faq-question w-full p-5 text-left font-bold text-slate-900 flex justify-between items-center hover:bg-slate-50 transition-colors">
+            <span>Jak mogę usunąć swoje konto lub dane?</span>
+            <svg class="faq-icon w-5 h-5 text-slate-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-content px-5 pb-5 text-sm text-slate-600 leading-relaxed">
+            Możesz to zrobić w każdej chwili bezpośrednio w aplikacji (Profil -> Usuń konto) lub przez naszą dedykowaną stronę internetową: <a href="delete-account.html" class="text-primary font-semibold underline">Usuwanie konta</a>. Wszystkie dane są bezpowrotnie usuwane.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Download Section -->
+  <section id="pobierz" class="py-20 bg-darkSlate text-white relative overflow-hidden">
+    <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold uppercase tracking-wider mb-6">
+        Dołącz do mądrych kucharzy
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-heading max-w-2xl mx-auto">
+        Zacznij oszczędzać na jedzeniu już od dzisiejszego obiadu!
+      </h2>
+
+      <p class="mt-4 text-slate-300 text-base sm:text-lg max-w-xl mx-auto">
+        Pobierz bezpłatną aplikację TanieDanie na system Android i przekonaj się, jak proste może być gotowanie z promocji.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a href="https://play.google.com/store/apps/details?id=tanie.danie" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-primary hover:bg-primaryDark text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-500/25 transition-all transform hover:-translate-y-0.5">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <div class="text-left">
+            <span class="block text-[10px] text-emerald-100 uppercase font-semibold">Dostępne w</span>
+            <span class="text-base font-extrabold">Google Play</span>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-12 text-sm text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        
+        <!-- Col 1: About -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-3 mb-4">
+            <img src="assets/images/app-icon.png" alt="TanieDanie" class="w-8 h-8 rounded-xl shadow-sm">
+            <span class="font-heading font-extrabold text-xl text-slate-900">Tanie<span class="text-primary">Danie</span></span>
+          </div>
+          <p class="text-xs text-slate-500 max-w-sm leading-relaxed mb-4">
+            Inteligentna aplikacja łącząca gazetki promocyjne z przepisami AI w idei Zero-Waste. Gotuj smacznie, oszczędzaj pieniądze i nie marnuj żywności.
+          </p>
+          <p class="text-[11px] text-slate-400">
+            * Wszystkie nazwy marek, sklepów (Biedronka, Lidl itp.) oraz logotypy są zastrzeżonymi znakami towarowymi ich prawnych właścicieli i zostały użyte wyłącznie w celach informacyjnych.
+          </p>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-4">Nawigacja</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#funkcje" class="hover:text-primary transition-colors">Główne funkcje</a></li>
+            <li><a href="#jak-dziala" class="hover:text-primary transition-colors">Jak to działa</a></li>
+            <li><a href="#faq" class="hover:text-primary transition-colors">Pytania i odpowiedzi (FAQ)</a></li>
+            <li><a href="contact.html" class="hover:text-primary transition-colors">Kontakt i Pomoc</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal -->
+        <div>
+          <h4 class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-4">Informacje Prawne</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="terms.html" class="hover:text-primary font-medium text-slate-700 transition-colors">Regulamin Aplikacji (Terms)</a></li>
+            <li><a href="privacy.html" class="hover:text-primary font-medium text-slate-700 transition-colors">Polityka Prywatności (RODO)</a></li>
+            <li><a href="delete-account.html" class="hover:text-primary font-medium text-red-600 transition-colors">Usuwanie konta i danych</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
+        <p>© <span id="current-year">2026</span> TanieDanie. Wszelkie prawa zastrzeżone.</p>
+        <p class="text-slate-400 text-[11px]">Wersja aplikacji: v1.0.39</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

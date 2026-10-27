@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuwanie Konta i Danych — TanieDanie</title>
+  
+  <meta name="description" content="Informacje i formularz żądania usunięcia konta oraz powiązanych danych z aplikacji TanieDanie (zgodnie z wytycznymi Google Play i RODO).">
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#10B981',
+            primaryDark: '#059669',
+            primaryLight: '#D1FAE5',
+            accent: '#F59E0B',
+            darkSlate: '#0F172A',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 glass-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center gap-3 group">
+          <img src="assets/images/app-icon.png" alt="TanieDanie Logo" class="w-10 h-10 rounded-2xl shadow-sm">
+          <div>
+            <span class="font-heading font-extrabold text-xl tracking-tight text-slate-900">Tanie<span class="text-primary">Danie</span></span>
+            <span class="block text-[9px] uppercase font-bold tracking-widest text-emerald-600 -mt-1">Centrum Pomocy</span>
+          </div>
+        </a>
+
+        <div class="flex items-center gap-4 text-xs font-semibold">
+          <a href="index.html" class="text-slate-600 hover:text-primary transition-colors flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Strona główna
+          </a>
+          <a href="privacy.html" class="hidden sm:inline-block text-slate-500 hover:text-slate-900">Polityka Prywatności</a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Content Container -->
+  <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    
+    <div class="bg-white rounded-3xl p-6 sm:p-12 shadow-sm border border-slate-200/80">
+      
+      <div class="border-b border-slate-100 pb-8 mb-8 text-center sm:text-left">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 text-red-700 text-xs font-bold uppercase tracking-wider mb-3 border border-red-200">
+          Zarządzanie Danymi Osobowymi
+        </div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 font-heading">
+          Usuwanie Konta i Danych Użytkownika
+        </h1>
+        <p class="text-sm text-slate-500 mt-2">
+          Szanujemy Twoją prywatność. Masz pełną kontrolę nad swoimi danymi w aplikacji <strong>TanieDanie</strong>.
+        </p>
+      </div>
+
+      <!-- Option 1: Direct in app (Recommended) -->
+      <div class="mb-10 bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center font-bold text-lg shadow-sm">1</div>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading">Sposób 1: Bezpośrednio w aplikacji (Natychmiast)</h2>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Najszybszym sposobem usunięcia konta jest wykonanie operacji bezpośrednio na telefonie. Usunięcie następuje w ułamku sekundy:
+        </p>
+        <ol class="list-decimal pl-5 space-y-2 text-sm text-slate-700 font-medium">
+          <li>Otwórz aplikację <strong>TanieDanie</strong> na telefonie.</li>
+          <li>Przejdź do zakładki <strong>Profil</strong> (ikona w dolnym menu).</li>
+          <li>Przewiń ekran na sam dół i kliknij czerwony przycisk <strong>„Usuń konto”</strong>.</li>
+          <li>Potwierdź operację w wyświetlonym oknie dialogowym.</li>
+        </ol>
+        <div class="mt-4 p-3 bg-emerald-50 text-emerald-800 text-xs rounded-xl border border-emerald-200">
+          ✓ Twoje konto, hasło, zapisane przepisy i koszyki zostaną natychmiast skasowane z bazy danych.
+        </div>
+      </div>
+
+      <!-- Option 2: Request via Web / Email -->
+      <div class="mb-10 bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-10 h-10 rounded-xl bg-slate-700 text-white flex items-center justify-center font-bold text-lg shadow-sm">2</div>
+          <h2 class="text-lg sm:text-xl font-bold text-slate-900 font-heading">Sposób 2: Zgłoszenie przez formularz lub e-mail</h2>
+        </div>
+        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+          Jeśli odinstalowałeś już aplikację lub nie masz dostępu do telefonu, możesz złożyć wniosek o usunięcie danych drogą elektroniczną:
+        </p>
+        
+        <form id="delete-form" class="space-y-4">
+          <div>
+            <label for="user-email" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Adres e-mail zarejestrowany w aplikacji:</label>
+            <input type="email" id="user-email" required placeholder="twoj-email@przyklad.pl" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm">
+          </div>
+
+          <div>
+            <label for="delete-reason" class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Powód usunięcia (opcjonalnie):</label>
+            <textarea id="delete-reason" rows="2" placeholder="Napisz, co możemy poprawić..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm"></textarea>
+          </div>
+
+          <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition-all text-sm">
+            Wyślij żądanie usunięcia konta
+          </button>
+        </form>
+
+        <div id="form-feedback" class="hidden mt-4 p-4 rounded-xl text-xs sm:text-sm font-semibold"></div>
+
+        <p class="text-xs text-slate-500 mt-4">
+          Możesz także napisać bezpośrednią wiadomość na adres: <a href="mailto:kontakt@taniedanie.app?subject=%C5%BB%C4%85danie%20usuni%C4%99cia%20konta%20TanieDanie" class="text-primary font-bold underline">kontakt@taniedanie.app</a> z tematem <em>„Żądanie usunięcia konta”</em> z adresu e-mail, na który założono konto.
+        </p>
+      </div>
+
+      <!-- What data is deleted -->
+      <div class="border-t border-slate-100 pt-8">
+        <h3 class="font-bold text-base text-slate-900 mb-3">Jakie dane są trwale usuwane?</h3>
+        <ul class="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-600">
+          <li>Adres e-mail i zaszyfrowane hasło Użytkownika.</li>
+          <li>Historia wszystkich wygenerowanych przepisów AI.</li>
+          <li>Zapisane ulubione przepisy w Twojej kolekcji.</li>
+          <li>Wszystkie pozycje na liście zakupów i w koszyku.</li>
+          <li>Ustawienia preferencji dietetycznych i wielkości gospodarstwa domowego.</li>
+          <li>Tokeny powiadomień Firebase FCM.</li>
+        </ul>
+        <p class="text-xs text-slate-400 mt-4">
+          Czas realizacji wniosków przesłanych formularzem lub drogą e-mail wynosi maksymalnie do 14 dni roboczych.
+        </p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 space-y-2">
+      <p>© 2026 TanieDanie. Wszelkie prawa zastrzeżone.</p>
+      <div class="flex justify-center gap-4 text-xs font-medium">
+        <a href="terms.html" class="hover:text-primary">Regulamin</a>
+        <span>•</span>
+        <a href="privacy.html" class="hover:text-primary">Polityka Prywatności</a>
+        <span>•</span>
+        <a href="delete-account.html" class="text-primary font-bold">Usuwanie Konta</a>
+        <span>•</span>
+        <a href="contact.html" class="hover:text-primary">Kontakt</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('delete-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('user-email').value;
+      const feedback = document.getElementById('form-feedback');
+      
+      // Client-side fallback mailto
+      window.location.href = `mailto:kontakt@taniedanie.app?subject=${encodeURIComponent('Żądanie usunięcia konta TanieDanie: ' + email)}&body=${encodeURIComponent('Proszę o trwałe usunięcie mojego konta i powiązanych danych zarejestrowanych na adres: ' + email)}`;
+      
+      feedback.className = 'mt-4 p-4 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200';
+      feedback.textContent = `Dziękujemy. Otwarto program pocztowy w celu potwierdzenia żądania usunięcia konta dla: ${email}. Możesz również wysłać maila manualnie na kontakt@taniedanie.app.`;
+      feedback.classList.remove('hidden');
+    });
+  </script>
+
+</body>
+</html>
